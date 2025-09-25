@@ -157,17 +157,26 @@ CREATE TABLE FormaPagamento(
 	CONSTRAINT PK_FormaPagamento PRIMARY KEY(Id)
 );
 
+CREATE TABLE ItemPreco(
+	Id INT IDENTITY, 
+	IdItem INTEGER NOT NULL,
+	DataAtualizacao DATE NOT NULL, 
+	Valor DECIMAL(10,2) NOT NULL,
+	
+	CONSTRAINT PK_ItemPreco PRIMARY KEY(Id)
+);
+
 CREATE TABLE LancamentoContas(
 	Id						INTEGER IDENTITY, 
 	IdConta					INTEGER				NOT NULL, 
-	IdProduto				INTEGER				NOT NULL, 
+	IdItem					INTEGER				NOT NULL, 
 	Quantidade				INTEGER				NOT NULL,
 	ValorUnitarioHistorico	DECIMAL(10,2)		NOT NULL, 
 	DataLancamento			DATE				NOT NULL, 
 	Descricao				VARCHAR(300),
 
 	CONSTRAINT PK_LancamentoContas PRIMARY KEY(Id),
-	CONSTRAINT FK_LancamentoContas_Produtos FOREIGN KEY(IdProduto) REFERENCES Produtos(Id)
+	CONSTRAINT FK_LancamentoContas_Produtos FOREIGN KEY(IdItem) REFERENCES ItemPreco(Id)
 );
 
 CREATE TABLE Contas(

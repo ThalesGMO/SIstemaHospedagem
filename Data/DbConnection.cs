@@ -6,7 +6,7 @@ public class DbConnection
 {
     public static void TestaBanco()
     {
-        string stringDeConexao = "Server=DESKTOP-TFUGHUK; Database=SistemaHospedagem; User Id=sa; Password=123;TrustServerCertificate=True";
+        string stringDeConexao = "Server=THALES; Database=SistemaHospedagem; User Id=sa; Password=123;TrustServerCertificate=True";
         SqlConnection conexao = new SqlConnection(stringDeConexao);
         try
         {
