@@ -232,7 +232,7 @@ CREATE TABLE Dependentes(
 	Email		VARCHAR(320)	NOT NULL UNIQUE, 
 	
 	CONSTRAINT PK_Dependentes PRIMARY KEY(Id),
-	CONSTRAINT FK_Dependentes_Reservas FOREIGN KEY(IdReserva) REFERENCES Reservas(Id),
+	CONSTRAINT FK_Dependentes_Reservas FOREIGN KEY(IdReserva) REFERENCES Reservas(Id)
 );
 
 CREATE TABLE ReservaHospede(
