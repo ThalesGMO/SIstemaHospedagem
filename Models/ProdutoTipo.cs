@@ -1,8 +1,14 @@
 namespace SistemaHospedagem.Models;
 
-public class ProdutoTipo(int id, string nome)
+public class ProdutoTipo
 {
-    public int Id { get; set; } = id;
+    public ProdutoTipo() { }
+    public ProdutoTipo(int id, string nome)
+    {
+        Id = id;
+        Nome = nome;
+    }
 
-    public string Nome { get; set; } = nome;
+    public int Id { get; set; }
+    public string Nome { get; set; }
 }

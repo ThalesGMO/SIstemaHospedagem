@@ -1,25 +1,29 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Identity.Client;
 using SistemaHospedagem.Models;
 
-[Table(nameof(AcomodacaoUnidade))]
-public class AcomodacaoUnidade(int id, string nome, int cep, string logradouro, string numero, string complemento, string bairro, string cidade)
+public class AcomodacaoUnidade
 {
-    [Key]
-    [Column(nameof(Id))]
-    public int Id { get; set; } = id;
+    public AcomodacaoUnidade() { }
+    public AcomodacaoUnidade(int id, string nome, int cep, string logradouro, string numero, string complemento, string bairro, string cidade)
+    {
+        Id = id;
+        Nome = nome;
+        Cep = cep;
+        Logradouro = logradouro;
+        Numero = numero;
+        Complemento = complemento;
+        Bairro = bairro;
+        Cidade = cidade;
+    }
 
-    public string Nome { get; set; } = nome;
-
-    public int Cep { get; set; } = cep;
-
-    public string Logradouro { get; set; } = logradouro;
-
-    public string Numero { get; set; } = numero;
-
-    public string Complemento { get; set; } = complemento;
-
-    public string Bairro { get; set; } = bairro;
-
-    public string Cidade { get; set; } = cidade;
+    public int Id { get; set; }
+    public string Nome { get; set; }
+    public int Cep { get; set; }
+    public string Logradouro { get; set; }
+    public string Numero { get; set; }
+    public string Complemento { get; set; }
+    public string Bairro { get; set; }
+    public string Cidade { get; set; }
 }

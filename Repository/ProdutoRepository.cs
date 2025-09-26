@@ -31,7 +31,11 @@ public class ProdutoRepository
         var produtos = new List<Produto>();
         using (SqlConnection dbConnection = DbConnection.GetConnection())
         {
-            string sql = "SELECT Id, Nome, IdTipo, Valor FROM Produtos";
+            string sql = @"SELECT   Id,
+                                    Nome,
+                                    IdTipo,
+                                    Valor
+                            FROM Produtos";
             var comando = dbConnection.CreateCommand();
             {
                 using (SqlDataReader reader = comando.ExecuteReader())

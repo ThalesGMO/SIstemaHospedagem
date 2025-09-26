@@ -5,7 +5,7 @@ using SistemaHospedagem.Models;
 
 public class Acomodacao
 {
-    public Acomodacao(){}
+    public Acomodacao() { }
     public Acomodacao(int id, int tipoQuartoId, int acomodacoesStatusId, int acomodacoesUnidadeId, string nome, string identificador, int capacidade, AcomodacaoUnidade unidade, AcomodacaoStatus acomodacoesStatus, TipoQuarto tipoQuarto)
     {
         Id = id;

@@ -33,10 +33,10 @@ CREATE TABLE Funcionarios(
 	Cpf				VARCHAR(11)			NOT NULL UNIQUE, 
 	DataAdmissao	DATE				NOT NULL, 
 
-	CONSTRAINT PK_Funcionarios PRIMARY KEY(Id),
-	CONSTRAINT FK_Funcionarios_Cargo FOREIGN KEY(IdCargo) REFERENCES FuncionarioCargos(Id),
-	CONSTRAINT FK_Funcionarios_Status FOREIGN KEY(IdStatus) REFERENCES FuncionarioStatus(Id)
-);
+	CONSTRAINT PK_Funcionarios PRIMARY KEY(Id)
+	CONSTRAINT FK_Funcionarios_Cargos FOREIGN KEY(IdCargo) REFERENCES FuncionariosCargos(Id),
+	CONSTRAINT FK_Funcionarios_Status FOREIGN KEY(IDStatus) REFERENCES FuncionariosStatus(Id)
+	);
 
 CREATE TABLE Perfis(
 	Id				INTEGER IDENTITY,
@@ -49,7 +49,6 @@ CREATE TABLE Perfis(
 	
 	CONSTRAINT PK_Perfil PRIMARY KEY(Id),
 	CONSTRAINT Fk_Perfil_Usuario FOREIGN KEY(IdFuncionario) REFERENCES Funcionarios(Id),
-	CONSTRAINT FK_Funcionarios_NivelAcesso FOREIGN KEY(IdNivelAcesso) REFERENCES FuncionarioNiveisAcesso(Id)
 );
 
 CREATE TABLE Periodos(
@@ -88,8 +87,8 @@ CREATE TABLE RegrasDeValores(
 
 	CONSTRAINT Pk_RegrasDeValores PRIMARY KEY(Id),
 	CONSTRAINT FK_RegrasDeValores_Periodos FOREIGN KEY(IdPeriodo) REFERENCES Periodos(Id),
-	CONSTRAINT FK_RegrasDeValores_TipoQuartos FOREIGN KEY(IdTipoQuarto) REFERENCES TipoQuartos(Id),
-	CONSTRAINT FK_RegrasDeValores_TipoAjutes FOREIGN KEY(IdTipoAjuste) REFERENCES TipoAjustes(Id)
+	CONSTRAINT FK_RegrasDeValores_TipoQuartos FOREIGN KEY(IdTipoQuarto) REFERENCES TiposQuartos(Id),
+	CONSTRAINT FK_RegrasDeValores_TipoAjutes FOREIGN KEY(IdTipoAjuste) REFERENCES TiposAjustes(Id)
 );
 
 CREATE TABLE AcomodacoesStatus(
@@ -122,8 +121,8 @@ CREATE TABLE Acomodacoes(
 
 	 CONSTRAINT PK_Acomodacoes PRIMARY KEY(Id),
 	 CONSTRAINT FK_Acomodacoes_Unidade FOREIGN KEY(IdUnidade) REFERENCES Unidades(Id),
-	 CONSTRAINT FK_Acomodacoes_Status FOREIGN KEY(IdStatus) REFERENCES AcomodacaoStatus(Id),
-	 CONSTRAINT FK_Acomodacoes_TipoQuarto FOREIGN KEY(IdTipoQuarto) REFERENCES TipoQuartos(Id)
+	 CONSTRAINT FK_Acomodacoes_Status FOREIGN KEY(IdStatus) REFERENCES AcomodacoesStatus(Id),
+	 CONSTRAINT FK_Acomodacoes_TipoQuarto FOREIGN KEY(IdTipoQuarto) REFERENCES TiposQuartos(Id)
 );
 
 CREATE TABLE ProdutosTipos(
@@ -140,7 +139,7 @@ CREATE TABLE Produtos(
 	Valor	DECIMAL(15,2)	NOT NULL, 
 
 	CONSTRAINT PK_Produto PRIMARY KEY(Id),
-	CONSTRAINT FK_Produto_Tipo FOREIGN KEY(IdTipo) REFERENCES ProdutoTipos(Id)
+	CONSTRAINT FK_Produto_Tipo FOREIGN KEY(IdTipo) REFERENCES ProdutosTipos(Id)
 );
 
 CREATE TABLE ContasStatus(
@@ -164,6 +163,7 @@ CREATE TABLE ItensPrecos(
 	Valor DECIMAL(10,2) NOT NULL,
 	
 	CONSTRAINT PK_ItemPreco PRIMARY KEY(Id)
+	CONSTRAINT Pk_ItensPreco FOREIGN KEY(IdItem) REFERENCES Produtos(Id)
 );
 
 CREATE TABLE LancamentosContas(
@@ -176,7 +176,7 @@ CREATE TABLE LancamentosContas(
 	Descricao				VARCHAR(300),
 
 	CONSTRAINT PK_LancamentoContas PRIMARY KEY(Id),
-	CONSTRAINT FK_LancamentoContas_Produtos FOREIGN KEY(IdItem) REFERENCES ItemPreco(Id)
+	CONSTRAINT FK_LancamentoContas_Produtos FOREIGN KEY(IdItem) REFERENCES ItensPrecos(Id)
 );
 
 CREATE TABLE Contas(
@@ -185,8 +185,8 @@ CREATE TABLE Contas(
 	IdLancamentoConta	INTEGER NOT NULL,
 
 	CONSTRAINT PK_Contas PRIMARY KEY(Id),
-	CONSTRAINT FK_Contas_LancamentoContas FOREIGN KEY(IdLancamentoConta) REFERENCES LancamentoContas(Id),
-	CONSTRAINT FK_Contas_Status FOREIGN KEY(IdStatus) REFERENCES ContaStatus(Id)
+	CONSTRAINT FK_Contas_LancamentoContas FOREIGN KEY(IdLancamentoConta) REFERENCES LancamentosContas(Id),
+	CONSTRAINT FK_Contas_Status FOREIGN KEY(IdStatus) REFERENCES ContasStatus(Id)
 );
 
 CREATE TABLE ContasFormasPagamentos(
@@ -196,7 +196,7 @@ CREATE TABLE ContasFormasPagamentos(
 	DataPagamento		DATE			NOT NULL,
 
 	CONSTRAINT FK_ContaFormaPagamento_Contas FOREIGN KEY(IdConta) REFERENCES Contas(Id),
-	CONSTRAINT FK_ContaFormaPagamento_FormaPagamento FOREIGN KEY(IdFormaPagamento) REFERENCES FormaPagamento(Id)
+	CONSTRAINT FK_ContaFormaPagamento_FormaPagamento FOREIGN KEY(IdFormaPagamento) REFERENCES FormasPagamentos(Id)
 );
 
 CREATE TABLE Hospedes(

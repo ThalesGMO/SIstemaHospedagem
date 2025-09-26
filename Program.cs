@@ -3,7 +3,7 @@ using SistemaHospedagem.Models;
 using SistemaHospedagem.Repository;
 
 
-Console.WriteLine("Motel SexoMuito");
+Console.WriteLine("Algo");
 Console.WriteLine("1 - Adicionar produto");
 Console.WriteLine("2 - Listar");
 Console.WriteLine("3 - Atualizar");
