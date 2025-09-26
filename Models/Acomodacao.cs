@@ -3,36 +3,32 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.Identity.Client;
 using SistemaHospedagem.Models;
 
-[Table(nameof(Acomodacao))]
-public class Acomodacao(int id, int tipoQuartoId, TipoQuarto tipoQuarto, int acomodacoesStatusId, AcomodacaoStatus acomodacoesStatus, string nome, string identificador, int capacidade, AcomodacaoUnidade unidade, int acomodacoesUnidadeId)
+public class Acomodacao
 {
-    [Key]
-    public int Id { get; set; } = id;
+    public Acomodacao(){}
+    public Acomodacao(int id, int tipoQuartoId, int acomodacoesStatusId, int acomodacoesUnidadeId, string nome, string identificador, int capacidade, AcomodacaoUnidade unidade, AcomodacaoStatus acomodacoesStatus, TipoQuarto tipoQuarto)
+    {
+        Id = id;
+        TipoQuartoId = tipoQuartoId;
+        AcomodacoesStatusId = acomodacoesStatusId;
+        AcomodacoesUnidadeId = acomodacoesUnidadeId;
+        Nome = nome;
+        Identificador = identificador;
+        Capacidade = capacidade;
+        Unidade = unidade;
+        AcomodacoesStatus = acomodacoesStatus;
+        TipoQuarto = tipoQuarto;
+    }
 
-    [ForeignKey(nameof(TipoQuartoId))]
-    [Required]
-    public int TipoQuartoId { get; set; } = tipoQuartoId;
+    public int Id { get; set; }
+    public int TipoQuartoId { get; set; }
+    public int AcomodacoesStatusId { get; set; }
+    public int AcomodacoesUnidadeId { get; set; }
+    public string Nome { get; set; }
+    public string Identificador { get; set; }
+    public int Capacidade { get; set; }
 
-    [ForeignKey(nameof(AcomodacoesStatusId))]
-    [Required]
-    public int AcomodacoesStatusId { get; set; } = acomodacoesStatusId;
-
-    [ForeignKey(nameof(AcomodacoesUnidadeId))]
-    [Required]
-    public int AcomodacoesUnidadeId { get; set; } = acomodacoesUnidadeId;
-
-    [Required]
-    [MaxLength(100)]
-    public string Nome { get; set; } = nome;
-
-    [Required]
-    [MaxLength(100)]
-    public string Identificador { get; set; } = identificador;
-
-    [Required]
-    public int Capacidade { get; set; } = capacidade;
-
-    public AcomodacaoUnidade Unidade { get; set; } = unidade;
-    public AcomodacaoStatus AcomodacoesStatus { get; set; } = acomodacoesStatus;
-    public TipoQuarto TipoQuarto { get; set; } = tipoQuarto;
+    public AcomodacaoUnidade Unidade { get; set; }
+    public AcomodacaoStatus AcomodacoesStatus { get; set; }
+    public TipoQuarto TipoQuarto { get; set; }
 }

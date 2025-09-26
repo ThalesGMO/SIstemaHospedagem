@@ -4,21 +4,21 @@ GO
 USE SistemaHospedagem
 GO
 
-CREATE TABLE FuncionarioCargos(
+CREATE TABLE FuncionariosCargos(
 	Id		TINYINT IDENTITY,
 	Nome	VARCHAR(30) NOT NULL 
 
 	CONSTRAINT PK_FuncionarioCargos PRIMARY KEY(Id)
 );
 
-CREATE TABLE FuncionarioStatus( 
+CREATE TABLE FuncionariosStatus( 
 	Id		TINYINT IDENTITY, 
 	Nome	VARCHAR(30) NOT NULL,
 
 	CONSTRAINT PK_FuncionarioStatus PRIMARY KEY(Id)
 );
 
-CREATE TABLE FuncionarioNiveisAcesso(
+CREATE TABLE FuncionariosNiveisAcessos(
 	Id		TINYINT IDENTITY,
 	Nome	VARCHAR(30) NOT NULL 
 
@@ -38,7 +38,7 @@ CREATE TABLE Funcionarios(
 	CONSTRAINT FK_Funcionarios_Status FOREIGN KEY(IdStatus) REFERENCES FuncionarioStatus(Id)
 );
 
-CREATE TABLE Perfil(
+CREATE TABLE Perfis(
 	Id				INTEGER IDENTITY,
 	IdFuncionario	INTEGER			NOT NULL,
 	NomeUsuario		VARCHAR(50)		NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE Periodos(
 	CONSTRAINT PK_Periodos PRIMARY KEY(Id)
 );
 
-CREATE TABLE TipoQuartos(
+CREATE TABLE TiposQuartos(
 	Id TINYINT IDENTITY,
 	Nome VARCHAR(50) NOT NULL,
 	ValorDiaria DECIMAL(15,2) NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE TipoQuartos(
 	CONSTRAINT PK_TipoQuartos PRIMARY KEY(Id)
 );
 	
-CREATE TABLE TipoAjustes(
+CREATE TABLE TiposAjustes(
 	Id TINYINT IDENTITY, 
 	Nome VARCHAR(40) NOT NULL,
 
@@ -92,7 +92,7 @@ CREATE TABLE RegrasDeValores(
 	CONSTRAINT FK_RegrasDeValores_TipoAjutes FOREIGN KEY(IdTipoAjuste) REFERENCES TipoAjustes(Id)
 );
 
-CREATE TABLE AcomodacaoStatus(
+CREATE TABLE AcomodacoesStatus(
 	Id TINYINT IDENTITY, 
 	Nome VARCHAR(50) NOT NULL
 
@@ -126,7 +126,7 @@ CREATE TABLE Acomodacoes(
 	 CONSTRAINT FK_Acomodacoes_TipoQuarto FOREIGN KEY(IdTipoQuarto) REFERENCES TipoQuartos(Id)
 );
 
-CREATE TABLE ProdutoTipos(
+CREATE TABLE ProdutosTipos(
 	Id		SMALLINT IDENTITY,
 	Nome	VARCHAR(30) NOT NULL, 
 
@@ -143,21 +143,21 @@ CREATE TABLE Produtos(
 	CONSTRAINT FK_Produto_Tipo FOREIGN KEY(IdTipo) REFERENCES ProdutoTipos(Id)
 );
 
-CREATE TABLE ContaStatus(
+CREATE TABLE ContasStatus(
 	Id		TINYINT IDENTITY, 
 	Nome	VARCHAR(30) NOT NULL,
 
 	CONSTRAINT PK_ContaStatus PRIMARY KEY(Id)
 );
 
-CREATE TABLE FormaPagamento(
+CREATE TABLE FormasPagamentos(
 	Id		TINYINT IDENTITY, 
 	Nome	VARCHAR(40) NOT NULL,
 
 	CONSTRAINT PK_FormaPagamento PRIMARY KEY(Id)
 );
 
-CREATE TABLE ItemPreco(
+CREATE TABLE ItensPrecos(
 	Id INT IDENTITY, 
 	IdItem INTEGER NOT NULL,
 	DataAtualizacao DATE NOT NULL, 
@@ -166,7 +166,7 @@ CREATE TABLE ItemPreco(
 	CONSTRAINT PK_ItemPreco PRIMARY KEY(Id)
 );
 
-CREATE TABLE LancamentoContas(
+CREATE TABLE LancamentosContas(
 	Id						INTEGER IDENTITY, 
 	IdConta					INTEGER				NOT NULL, 
 	IdItem					INTEGER				NOT NULL, 
@@ -189,7 +189,7 @@ CREATE TABLE Contas(
 	CONSTRAINT FK_Contas_Status FOREIGN KEY(IdStatus) REFERENCES ContaStatus(Id)
 );
 
-CREATE TABLE ContaFormaPagamento(
+CREATE TABLE ContasFormasPagamentos(
 	IdConta				INTEGER			NOT NULL,
 	IdFormaPagamento	TINYINT			NOT NULL,
 	Valor				DECIMAL(10,2)	NOT NULL,
@@ -244,7 +244,7 @@ CREATE TABLE Dependentes(
 	CONSTRAINT FK_Dependentes_Reservas FOREIGN KEY(IdReserva) REFERENCES Reservas(Id)
 );
 
-CREATE TABLE ReservaHospede(
+CREATE TABLE ReservasHospedes(
 	IdHospede INTEGER NOT NULL,
 	IdReserva INTEGER NOT NULL,
 
