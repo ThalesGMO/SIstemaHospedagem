@@ -1,14 +1,24 @@
 namespace SistemaHospedagem.Models;
 
-public class Hospede(int id, string nome, string email, string telefone, string cpf)
+public class Hospede
 {
-    public int Id { get; set; } = id;
+    public Hospede(){}
+    public Hospede(int id, string nome, string email, string telefone, string cpf)
+    {
+        Id = id;
+        Nome = nome;
+        Email = email;
+        Telefone = telefone;
+        Cpf = cpf;
+    }
 
-    public string Nome { get; set; } = nome;
+    public int Id { get; set; } 
 
-    public string Email { get; set; } = email;
+    public string Nome { get; set; } 
 
-    public string Telefone { get; set; } = telefone;
+    public string Email { get; set; } 
 
-    public string Cpf { get; set; } = cpf;
+    public string Telefone { get; set; } 
+
+    public string Cpf { get; set; } 
 }

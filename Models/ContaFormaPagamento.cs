@@ -1,14 +1,24 @@
 namespace SistemaHospedagem.Models;
 
-public class ContaFormaPagamento(int idConta, int idFormaPagamento, decimal valor, Conta conta, ContaFormaPagamento formaPagamento)
+public class ContaFormaPagamento
 {
-    public int IdConta { get; set; } = idConta;
+    public ContaFormaPagamento(){}
+    public ContaFormaPagamento(int idConta, int idFormaPagamento, decimal valor, Conta conta, ContaFormaPagamento formaPagamento)
+    {
+        IdConta = idConta;
+        IdFormaPagamento = idFormaPagamento;
+        Valor = valor;
+        Conta = conta;
+        FormaPagamento = formaPagamento;
+    }
 
-    public int IdFormaPagamento { get; set; } = idFormaPagamento;
+    public int IdConta { get; set; } 
 
-    public decimal Valor { get; set; } = valor;
+    public int IdFormaPagamento { get; set; } 
 
-    public Conta Conta { get; set; } = conta;
+    public decimal Valor { get; set; } 
 
-    public ContaFormaPagamento FormaPagamento { get; set; } = formaPagamento;
+    public Conta Conta { get; set; } 
+
+    public ContaFormaPagamento FormaPagamento { get; set; } 
 }

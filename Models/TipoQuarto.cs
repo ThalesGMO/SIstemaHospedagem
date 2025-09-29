@@ -1,10 +1,18 @@
 namespace  SistemaHospedagem.Models;
 
-public class TipoQuarto(int id, string nome, decimal precoDiaria)
+public class TipoQuarto
 {
-    public int Id { get; set; } = id;
+    TipoQuarto(){}
+    public TipoQuarto(int id, string nome, decimal precoDiaria)
+    {
+        Id = id;
+        Nome = nome;
+        PrecoDiaria = precoDiaria;
+    }
 
-    public string Nome { get; set; } = nome;
+    public int Id { get; set; }
 
-    public decimal PrecoDiaria { get; set; } = precoDiaria;
+    public string Nome { get; set; } 
+
+    public decimal PrecoDiaria { get; set; } 
 }

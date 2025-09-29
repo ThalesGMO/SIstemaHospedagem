@@ -1,8 +1,15 @@
 namespace SistemaHospedagem.Models;
 
-public class ContasFormaPagamento(int id, string nome)
+public class ContasFormaPagamento
 {
-    public int Id { get; set; } = id;
+    public ContasFormaPagamento(){}
+    public ContasFormaPagamento(int id, string nome)
+    {
+        Id = id;
+        Nome = nome;
+    }
 
-    public required string Nome { get; set; } = nome;
+    public int Id { get; set; } 
+
+    public required string Nome { get; set; } 
 }
