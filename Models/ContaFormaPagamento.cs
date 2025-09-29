@@ -12,13 +12,9 @@ public class ContaFormaPagamento
         FormaPagamento = formaPagamento;
     }
 
-    public int IdConta { get; set; } 
-
-    public int IdFormaPagamento { get; set; } 
-
-    public decimal Valor { get; set; } 
-
-    public Conta Conta { get; set; } 
-
-    public ContaFormaPagamento FormaPagamento { get; set; } 
+    public int IdConta { get; set; }
+    public int IdFormaPagamento { get; set; }
+    public decimal Valor { get; set; }
+    public Conta Conta { get; set; }
+    public ContaFormaPagamento FormaPagamento { get; set; }
 }

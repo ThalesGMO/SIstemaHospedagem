@@ -1,8 +1,11 @@
-namespace SistemaHospedagem.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Identity.Client;
+using SistemaHospedagem.Models;
 
 public class AcomodacaoUnidade
 {
-    public class acomodacoesStatus(){}
+    public AcomodacaoUnidade() { }
     public AcomodacaoUnidade(int id, string nome, int cep, string logradouro, string numero, string complemento, string bairro, string cidade)
     {
         Id = id;
