@@ -9,7 +9,7 @@ namespace SistemaHospedagem.Repository;
 
 public class HospedeRepository
 {
-    public void inserir(Hospede hospede)
+    public void Inserir(Hospede hospede)
     {
         var dbConnection = DbConnection.GetConnection();
         var Comando = dbConnection.CreateCommand();
@@ -23,5 +23,10 @@ public class HospedeRepository
         Comando.Parameters.AddWithValue("@Cpf", hospede.Cpf);
         Comando.ExecuteNonQuery();
         dbConnection.Close();
+    }
+
+    public void Deletar(Hospede hospede)
+    {
+        
     }
 }

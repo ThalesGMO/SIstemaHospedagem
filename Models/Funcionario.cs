@@ -1,19 +1,31 @@
 namespace SistemaHospedagem.Models;
 
-public class Funcionario(int id, string nome, string cpf, DateOnly dateNascimento, FuncionarioCargo cargo, FuncionarioCargo perfil, FuncionarioStatus status)
+public class Funcionario
 {
-    int Id { get; set; } = id;
+    public Funcionario() { }
+    public Funcionario(int id, string nome, string cpf, DateOnly dateNascimento, FuncionarioCargo cargo, FuncionarioCargo perfil, FuncionarioStatus status)
+    {
+        Id = id;
+        Nome = nome;
+        Cpf = cpf;
+        DateNascimento = dateNascimento;
+        Cargo = cargo;
+        Perfil = perfil;
+        Status = status;
+    }
 
-    public string Nome { get; set; } = nome;
+    int Id { get; set; }
 
-    public string Cpf { get; set; } = cpf;
+    public string Nome { get; set; }
 
-    public DateOnly DateNascimento { get; set; } = dateNascimento;
+    public string Cpf { get; set; }
 
-    FuncionarioCargo Cargo { get; set; } = cargo;
+    public DateOnly DateNascimento { get; set; }
 
-    FuncionarioCargo Perfil { get; set; } = perfil;
+    FuncionarioCargo Cargo { get; set; }
 
-    FuncionarioStatus Status { get; set; } = status;
+    FuncionarioCargo Perfil { get; set; }
+
+    FuncionarioStatus Status { get; set; }
 
 }

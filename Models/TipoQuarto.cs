@@ -1,8 +1,8 @@
-namespace  SistemaHospedagem.Models;
+namespace SistemaHospedagem.Models;
 
 public class TipoQuarto
 {
-    TipoQuarto(){}
+    public TipoQuarto() { }
     public TipoQuarto(int id, string nome, decimal precoDiaria)
     {
         Id = id;
@@ -11,8 +11,6 @@ public class TipoQuarto
     }
 
     public int Id { get; set; }
-
-    public string Nome { get; set; } 
-
-    public decimal PrecoDiaria { get; set; } 
+    public string Nome { get; set; }
+    public decimal PrecoDiaria { get; set; }
 }

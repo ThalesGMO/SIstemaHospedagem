@@ -33,7 +33,7 @@ CREATE TABLE Funcionarios(
 	Cpf				VARCHAR(11)			NOT NULL UNIQUE, 
 	DataAdmissao	DATE				NOT NULL, 
 
-	CONSTRAINT PK_Funcionarios PRIMARY KEY(Id)
+	CONSTRAINT PK_Funcionarios PRIMARY KEY(Id),
 	CONSTRAINT FK_Funcionarios_Cargos FOREIGN KEY(IdCargo) REFERENCES FuncionariosCargos(Id),
 	CONSTRAINT FK_Funcionarios_Status FOREIGN KEY(IDStatus) REFERENCES FuncionariosStatus(Id)
 	);
@@ -162,7 +162,7 @@ CREATE TABLE ItensPrecos(
 	DataAtualizacao DATE NOT NULL, 
 	Valor DECIMAL(10,2) NOT NULL,
 	
-	CONSTRAINT PK_ItemPreco PRIMARY KEY(Id)
+	CONSTRAINT PK_ItemPreco PRIMARY KEY(Id),
 	CONSTRAINT Pk_ItensPreco FOREIGN KEY(IdItem) REFERENCES Produtos(Id)
 );
 

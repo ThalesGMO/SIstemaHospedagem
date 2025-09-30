@@ -1,16 +1,27 @@
 namespace SistemaHospedagem.Models;
 
-public class Perfil(int id, string nomeUsuario, string senha, string salt, int funcionarioId, Funcionario funcionario)
+public class Perfil
 {
-    public int Id { get; set; } = id;
+    public Perfil() { }
+    public Perfil(int id, string nomeUsuario, string senha, string salt, int funcionarioId, Funcionario funcionario)
+    {
+        Id = id;
+        NomeUsuario = nomeUsuario;
+        Senha = senha;
+        Salt = salt;
+        FuncionarioId = funcionarioId;
+        Funcionario = funcionario;
+    }
 
-    public string NomeUsuario { get; set; } = nomeUsuario;
+    public int Id { get; set; }
 
-    public string Senha { get; set; } = senha;
+    public string NomeUsuario { get; set; }
 
-    public string Salt { get; set; } = salt;
+    public string Senha { get; set; }
 
-    public int FuncionarioId { get; set; } = funcionarioId;
+    public string Salt { get; set; }
 
-    public Funcionario Funcionario { get; set; } = funcionario;
+    public int FuncionarioId { get; set; }
+
+    public Funcionario Funcionario { get; set; }
 }

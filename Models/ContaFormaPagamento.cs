@@ -2,7 +2,7 @@ namespace SistemaHospedagem.Models;
 
 public class ContaFormaPagamento
 {
-    public ContaFormaPagamento(){}
+    public ContaFormaPagamento() { }
     public ContaFormaPagamento(int idConta, int idFormaPagamento, decimal valor, Conta conta, ContaFormaPagamento formaPagamento)
     {
         IdConta = idConta;

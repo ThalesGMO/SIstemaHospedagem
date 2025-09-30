@@ -1,14 +1,24 @@
 namespace SistemaHospedagem.Models;
 
-public class Periodo(int id, string nome, DateTime dataInicio, DateTime dataFim, string descricao)
+public class Periodo
 {
-    public int Id { get; set; } = id;
+    public Periodo() { }
+    public Periodo(int id, string nome, DateTime dataInicio, DateTime dataFim, string descricao)
+    {
+        Id = id;
+        Nome = nome;
+        DataInicio = dataInicio;
+        DataFim = dataFim;
+        Descricao = descricao;
+    }
 
-    public string Nome { get; set; } = nome;
+    public int Id { get; set; }
 
-    public DateTime DataInicio { get; set; } = dataInicio;
+    public string Nome { get; set; }
 
-    public DateTime DataFim { get; set; } = dataFim;
+    public DateTime DataInicio { get; set; }
 
-    public string Descricao { get; set; } = descricao;
+    public DateTime DataFim { get; set; }
+
+    public string Descricao { get; set; }
 }

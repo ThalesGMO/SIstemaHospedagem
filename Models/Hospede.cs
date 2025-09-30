@@ -1,8 +1,8 @@
 namespace SistemaHospedagem.Models;
 
-public class Hoespede(){}
 public class Hospede
 {
+    public Hospede() { }
     public Hospede(int id, string nome, string email, string telefone, string cpf)
     {
         Id = id;

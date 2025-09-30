@@ -1,8 +1,15 @@
 namespace SistemaHospedagem.Models;
 
-public class ContaStatus(int id, string nome)
+public class ContaStatus
 {
-    public int Id { get; set; } = id;
+    public ContaStatus() { }
+    public ContaStatus(int id, string nome)
+    {
+        Id = id;
+        Nome = nome;
+    }
 
-    public string Nome { get; set; } = nome;
+    public int Id { get; set; }
+
+    public string Nome { get; set; }
 }

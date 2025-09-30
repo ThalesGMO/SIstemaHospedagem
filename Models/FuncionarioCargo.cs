@@ -1,7 +1,15 @@
 namespace SistemaHospedagem.Models;
-public class FuncionarioCargo(int id, string nome)
-{
-    public int Id { get; set; } = id;
 
-    public string Nome { get; set; } = nome;
+public class FuncionarioCargo
+{
+    public FuncionarioCargo() { }
+    public FuncionarioCargo(int id, string nome)
+    {
+        Id = id;
+        Nome = nome;
+    }
+
+    public int Id { get; set; }
+
+    public string Nome { get; set; }
 }
