@@ -1,8 +1,14 @@
 namespace SistemaHospedagem.Models;
 
-public class TipoAjuste(int id, string nome)
+public class TipoAjuste
 {
-    public int Id { get; set; } = id;
+    public TipoAjuste() { }
+    public TipoAjuste(int id, string nome)
+    {
+        Id = id;
+        Nome = nome;
+    }
 
-    public string Nome { get; set; } = nome;
+    public int Id { get; set; }
+    public string Nome { get; set; }
 }
