@@ -31,12 +31,12 @@ public class ProdutoRepository
         var produtos = new List<Produto>();
         using (SqlConnection dbConnection = DbConnection.GetConnection())
         {
-            string sql = @"SELECT   Id,
+            var comando = dbConnection.CreateCommand();
+            comando.CommandText = @"SELECT   Id,
                                     Nome,
                                     IdTipo,
                                     Valor
                             FROM Produtos";
-            var comando = dbConnection.CreateCommand();
             {
                 using (SqlDataReader reader = comando.ExecuteReader())
                 {

@@ -33,7 +33,7 @@ CREATE TABLE Funcionarios(
 	Cpf				VARCHAR(11)			NOT NULL UNIQUE, 
 	DataAdmissao	DATE				NOT NULL, 
 
-	CONSTRAINT PK_Funcionarios PRIMARY KEY(Id)
+	CONSTRAINT PK_Funcionarios PRIMARY KEY(Id),
 	CONSTRAINT FK_Funcionarios_Cargos FOREIGN KEY(IdCargo) REFERENCES FuncionariosCargos(Id),
 	CONSTRAINT FK_Funcionarios_Status FOREIGN KEY(IDStatus) REFERENCES FuncionariosStatus(Id)
 	);
@@ -61,7 +61,8 @@ CREATE TABLE Periodos(
 	CONSTRAINT PK_Periodos PRIMARY KEY(Id)
 );
 
-CREATE TABLE TiposQuartos(
+
+CREATE TABLE TiposAcomodacoes(
 	Id TINYINT IDENTITY,
 	Nome VARCHAR(50) NOT NULL,
 	ValorDiaria DECIMAL(15,2) NOT NULL,
@@ -69,6 +70,17 @@ CREATE TABLE TiposQuartos(
 	CONSTRAINT PK_TipoQuartos PRIMARY KEY(Id)
 );
 	
+CREATE TABLE HistoricosTiposAcomodacoes(
+	Id INTEGER IDENTITY,
+	IdTipoAcomodacao TINYINT NOT NULL, 
+	Valor DECIMAL (10,2) NOT NULL, 
+	DataHistoricoInicio DATE NOT NULL, 
+	DataHistoricoFim DATE NOT NULL, 
+
+	CONSTRAINT PK_HistoricosTiposAcomodacoes PRIMARY KEY(Id),
+	CONSTRAINT FK_HistoricosTiposAcomodacoes_TipoAcomodacao FOREIGN KEY(IdTipoAcomodacao) REFERENCES TiposAcomodacoes(Id)
+);
+
 CREATE TABLE TiposAjustes(
 	Id TINYINT IDENTITY, 
 	Nome VARCHAR(40) NOT NULL,
@@ -79,7 +91,7 @@ CREATE TABLE TiposAjustes(
 CREATE TABLE RegrasDeValores(
 	Id				INTEGER IDENTITY, 
 	IdPeriodo		SMALLINT NOT NULL,
-	IdTipoQuarto	TINYINT NOT NULL, 
+	IdTipoAcomodacao	TINYINT NOT NULL, 
 	IdTipoAjuste	TINYINT NOT NULL, 
 	Nome			VARCHAR(50) NOT NULL, 
 	Valor			DECIMAL(15,2) NOT NULL,
@@ -87,7 +99,7 @@ CREATE TABLE RegrasDeValores(
 
 	CONSTRAINT Pk_RegrasDeValores PRIMARY KEY(Id),
 	CONSTRAINT FK_RegrasDeValores_Periodos FOREIGN KEY(IdPeriodo) REFERENCES Periodos(Id),
-	CONSTRAINT FK_RegrasDeValores_TipoQuartos FOREIGN KEY(IdTipoQuarto) REFERENCES TiposQuartos(Id),
+	CONSTRAINT FK_RegrasDeValores_TipoQuartos FOREIGN KEY(IdTipoAcomodacao) REFERENCES TiposAcomodacoes(Id),
 	CONSTRAINT FK_RegrasDeValores_TipoAjutes FOREIGN KEY(IdTipoAjuste) REFERENCES TiposAjustes(Id)
 );
 
@@ -115,14 +127,14 @@ CREATE TABLE Acomodacoes(
 	 Id				INTEGER IDENTITY,
 	 IdUnidade		SMALLINT		NOT NULL,
 	 IdStatus		TINYINT			NOT NULL,
-	 IdTipoQuarto	TINYINT			NOT NULL,
+	 IdTipoAcomodacao	TINYINT			NOT NULL,
 	 Capacidade		SMALLINT		NOT NULL,
 	 Identificador	VARCHAR(100)	NOT NULL,
 
 	 CONSTRAINT PK_Acomodacoes PRIMARY KEY(Id),
 	 CONSTRAINT FK_Acomodacoes_Unidade FOREIGN KEY(IdUnidade) REFERENCES Unidades(Id),
 	 CONSTRAINT FK_Acomodacoes_Status FOREIGN KEY(IdStatus) REFERENCES AcomodacoesStatus(Id),
-	 CONSTRAINT FK_Acomodacoes_TipoQuarto FOREIGN KEY(IdTipoQuarto) REFERENCES TiposQuartos(Id)
+	 CONSTRAINT FK_Acomodacoes_TipoQuarto FOREIGN KEY(IdTipoAcomodacao) REFERENCES TiposAcomodacoes(Id)
 );
 
 CREATE TABLE ProdutosTipos(
@@ -162,7 +174,7 @@ CREATE TABLE ItensPrecos(
 	DataAtualizacao DATE NOT NULL, 
 	Valor DECIMAL(10,2) NOT NULL,
 	
-	CONSTRAINT PK_ItemPreco PRIMARY KEY(Id)
+	CONSTRAINT PK_ItemPreco PRIMARY KEY(Id),
 	CONSTRAINT Pk_ItensPreco FOREIGN KEY(IdItem) REFERENCES Produtos(Id)
 );
 
