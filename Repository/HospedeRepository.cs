@@ -37,7 +37,6 @@ public class HospedeRepository
         comando.Parameters.AddWithValue("@Id", hospede.Id);
         comando.ExecuteNonQuery();
         dbConnection.Close();
-
     }
 
     public static IEnumerable<Hospede> Buscar()
@@ -71,14 +70,21 @@ public class HospedeRepository
         return hospedes;
     }
 
-
-    public void Atualizar()
+    public void Atualizar(Hospede hospede)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
         comando.CommandText = @"UPDATE Hospede
                                     SET Nome = @Nome
                                         Cpf = @Cpf
-                                        Email = @Email  "
+                                        Telefone = @Telefone
+                                        Email = @Email 
+                                WHERE Id = @Id";
+        comando.Parameters.AddWithValue("@Id", hospede.Id);
+        comando.Parameters.AddWithValue("@Nome", hospede.Nome);
+        comando.Parameters.AddWithValue("@Telefone", hospede.Telefone);
+        comando.Parameters.AddWithValue("@Email", hospede.Email);
+        comando.ExecuteNonQuery();
+        dbConnection.Close();
     }
 }

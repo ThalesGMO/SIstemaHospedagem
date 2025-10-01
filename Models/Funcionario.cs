@@ -15,17 +15,11 @@ public class Funcionario
     }
 
     int Id { get; set; }
-
     public string Nome { get; set; }
-
     public string Cpf { get; set; }
-
     public DateOnly DateNascimento { get; set; }
-
     FuncionarioCargo Cargo { get; set; }
-
     FuncionarioCargo Perfil { get; set; }
-
     FuncionarioStatus Status { get; set; }
 
 }

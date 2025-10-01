@@ -56,6 +56,7 @@ CREATE TABLE Periodos(
 	Nome			VARCHAR(50)			NOT NULL, 
 	DataInicio		DATE				NOT NULL, 
 	DataFim			DATE				NOT NULL,
+	Prioridade 		TINYINT 			NOT NULL,
 	Descricao		VARCHAR(300) 
 
 	CONSTRAINT PK_Periodos PRIMARY KEY(Id)
@@ -118,6 +119,7 @@ CREATE TABLE Unidades(
 	Numero		VARCHAR(10)		NOT NULL, 
 	Bairro		VARCHAR(150)	NOT NULL,
 	Cidade		VARCHAR(100)	NOT NULL,
+	Estado 		VARCHAR(100)	NOT NULL,
 	Complemento VARCHAR(100),
 
 	CONSTRAINT PK_Unidade PRIMARY KEY(Id)

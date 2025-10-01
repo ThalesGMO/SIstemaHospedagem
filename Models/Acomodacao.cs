@@ -1,6 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.Identity.Client;
 using SistemaHospedagem.Models;
 
 public class Acomodacao

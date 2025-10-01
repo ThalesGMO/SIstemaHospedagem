@@ -6,7 +6,7 @@ using SistemaHospedagem.Repository;
 Console.WriteLine("Cadastrar novo hospede");
 Console.WriteLine("1 - Adicionar hospede");
 Console.WriteLine("2 - Listar");
-Console.WriteLine("3 - Atualizar");
+Console.WriteLine("3 - Adicionar Periodo");
 Console.WriteLine("4 - Remover");
 
 bool penis = true;
@@ -17,6 +17,7 @@ while (penis)
     {
         case "1": Cadastrar(); break;
         case "2": Buscar(); break;
+        case "3": InserirPeriodo(); break;
     }
 }
 
@@ -68,4 +69,38 @@ void Buscar()
         Console.WriteLine($"Email: {hospede.Email}");
         Console.WriteLine("----------------------------------------");
     }
+}
+
+void InserirPeriodo()
+{
+    Console.WriteLine("Digite o Nome do Periodo");
+    string nome = Console.ReadLine();
+
+    Console.WriteLine("Digite a data de início do período");
+    DateOnly dataInicio = DateOnly.Parse(Console.ReadLine());
+
+    Console.WriteLine("Digite a data de fim do período");
+    DateOnly datafim = DateOnly.Parse(Console.ReadLine());
+
+    Console.WriteLine("Digite a descricao do período");
+    string descricao = Console.ReadLine();
+
+    Console.WriteLine("Digite a Prioridade do período");
+
+    foreach (var prioridade in Enum.GetValues(typeof(PeridoosPrioridadeEnum)))
+        Console.WriteLine($"{prioridade}");
+    int escolha = int.Parse(Console.ReadLine());
+
+    Periodo periodo = new Periodo()
+    {
+        Nome = nome,
+        DataInicio = dataInicio,
+        DataFim = datafim,
+        Descricao = descricao,
+    };
+
+    PeriodoRepository periodoRepository = new PeriodoRepository();
+    periodoRepository.Inserir(periodo);
+    Console.Clear();
+    return;
 }

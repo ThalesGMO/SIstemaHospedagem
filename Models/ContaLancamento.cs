@@ -14,14 +14,9 @@ public class ContaLancamento
     }
 
     public int Id { get; set; }
-
     public int IdConta { get; set; }
-
     public int IdProduto { get; set; }
-
     public int Quantidade { get; set; }
-
     public decimal ValorUnitarioHistorico { get; set; }
-
     public Produto Produto { get; set; }
 }

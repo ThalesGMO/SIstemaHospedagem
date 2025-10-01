@@ -6,7 +6,7 @@ using SistemaHospedagem.Models;
 public class AcomodacaoUnidade
 {
     public AcomodacaoUnidade() { }
-    public AcomodacaoUnidade(int id, string nome, int cep, string logradouro, string numero, string complemento, string bairro, string cidade)
+    public AcomodacaoUnidade(int id, string nome, int cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado)
     {
         Id = id;
         Nome = nome;
@@ -16,6 +16,7 @@ public class AcomodacaoUnidade
         Complemento = complemento;
         Bairro = bairro;
         Cidade = cidade;
+        Estado = estado;
     }
 
     public int Id { get; set; }
@@ -26,4 +27,5 @@ public class AcomodacaoUnidade
     public string Complemento { get; set; }
     public string Bairro { get; set; }
     public string Cidade { get; set; }
+    public string Estado { get; set; }
 }
