@@ -104,3 +104,10 @@ void InserirPeriodo()
     Console.Clear();
     return;
 }
+
+void InserirFuncionario()
+{
+    Console.WriteLine("Digite o nome do funcionario");
+    Console.WriteLine("Digite o nome do funcionario");
+    Console.WriteLine("Digite o nome do funcionario");
+}

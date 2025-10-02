@@ -59,6 +59,7 @@ public class PeriodoRepository
                 periodos.Add(periodo);
             }
         }
+        dbConnection.Close();
         return periodos;
     }
 

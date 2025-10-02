@@ -53,6 +53,7 @@ public class ProdutoRepository
                     }
                 }
             }
+            dbConnection.Close();
         }
         return produtos;
     }
@@ -83,6 +84,7 @@ public class ProdutoRepository
         comando.Parameters.AddWithValue("@Nome", produto.Nome);
         comando.Parameters.AddWithValue("@IdTipo", produto.IdTipo);
         comando.Parameters.AddWithValue("@Nome", produto.Valor);
+        dbConnection.Close();
     }
 
     public IEnumerable<Produto> Buscar(string nome)
@@ -111,6 +113,7 @@ public class ProdutoRepository
                 };
                 produtos.Add(produto);
             }
+            dbConnection.Close();
         }
         return produtos;
     }

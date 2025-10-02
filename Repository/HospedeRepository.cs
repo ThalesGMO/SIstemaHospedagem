@@ -66,15 +66,17 @@ public class HospedeRepository
                     hospedes.Add(hospede);
                 }
             }
+            dbConnection.Close();
         }
         return hospedes;
+
     }
 
     public void Atualizar(Hospede hospede)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
-        comando.CommandText = @"UPDATE Hospede
+        comando.CommandText = @"UPDATE Hospedes
                                     SET Nome = @Nome
                                         Cpf = @Cpf
                                         Telefone = @Telefone
