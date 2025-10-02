@@ -89,7 +89,7 @@ void InserirPeriodo()
 
     foreach (var prioridade in Enum.GetValues(typeof(PeridoosPrioridadeEnum)))
         Console.WriteLine($"{prioridade}");
-    int escolha = int.Parse(Console.ReadLine());
+    int prioridadeEscolhida = int.Parse(Console.ReadLine());
 
     Periodo periodo = new Periodo()
     {
@@ -97,17 +97,15 @@ void InserirPeriodo()
         DataInicio = dataInicio,
         DataFim = datafim,
         Descricao = descricao,
+        Prioridade = prioridadeEscolhida
     };
 
     PeriodoRepository periodoRepository = new PeriodoRepository();
     periodoRepository.Inserir(periodo);
-    Console.Clear();
     return;
 }
 
 void InserirFuncionario()
 {
-    Console.WriteLine("Digite o nome do funcionario");
-    Console.WriteLine("Digite o nome do funcionario");
     Console.WriteLine("Digite o nome do funcionario");
 }

@@ -3,7 +3,7 @@ namespace SistemaHospedagem.Models;
 public class Funcionario
 {
     public Funcionario() { }
-    public Funcionario(int id, string nome, string cpf, DateOnly dateNascimento, string telefone, DateOnly dataAdmissao, int idCargo, int idStatus)
+    public Funcionario(int id, string nome, string cpf, string telefone, DateOnly dataAdmissao, int idCargo, int idStatus)
     {
         Id = id;
         Nome = nome;

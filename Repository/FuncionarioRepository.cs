@@ -1,3 +1,5 @@
+using Microsoft.Data.SqlClient;
+using SistemaHospedagem.Extensions;
 using SistemaHospedagem.Models;
 
 namespace SistemaHospedagem.Repository;
@@ -49,25 +51,34 @@ public class FuncionarioRepository
 
     public IEnumerable<Funcionario> Buscar()
     {
-        var funcionario = new List<Funcionario>();
+        var funcionarios = new List<Funcionario>();
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
-        comando.CommandText = @"SELECT  f.Id,
-                                        f.Nome,
-                                        f.Cpf,
-                                        f.Telefone,
-                                        f.DataAdmissao,
-                                        f.IdStatus,
-                                        fs.Nome,
-                                        f.IdCargo,
-                                        fc.Nome
-                                    FROM Funcionarios f
-                                            INNER JOIN FuncionariosStatus fs
-                                                ON f.IdStatus = fs.Id
-                                            INNER JOIN FuncionariosCargos fc
-                                                ON f.IdCargo = fc.Id";
-
-
+        comando.CommandText = @"SELECT  Id,
+                                        Nome,
+                                        Cpf,
+                                        Telefone,
+                                        DataAdmissao,
+                                        IdStatus,
+                                        IdCargo,
+                                    FROM Funcionarios";
+        using (SqlDataReader reader = comando.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var funcionario = new Funcionario
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                    Nome = reader.GetString(reader.GetOrdinal("Nome")),
+                    Telefone = reader.GetString(reader.GetOrdinal("Telefone")),
+                    DataAdmissao = reader.GetDateOnly(reader.GetOrdinal("DataAdmissao")),
+                    IdStatus = reader.GetInt32(reader.GetOrdinal("IdStatus")),
+                    IdCargo = reader.GetInt32(reader.GetOrdinal("IdCargo")),
+                };
+                funcionarios.Add(funcionario);
+            }
+        }
+        dbConnection.Close();
+        return funcionarios;
     }
-
 }
