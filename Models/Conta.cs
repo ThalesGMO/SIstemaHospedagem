@@ -4,16 +4,17 @@ public class Conta
 {
 
     public Conta() { }
-    public Conta(int id, byte idStatus, IEnumerable<ContaLancamento> lancamento, IEnumerable<ContaFormaPagamento> formaPagamento)
+    public Conta(int id, byte idStatus, int idContaLancamento, int idFormaPagamento)
     {
         Id = id;
         IdStatus = idStatus;
-        Lancamento = lancamento;
-        FormaPagamento = formaPagamento;
+        IdContaLancamento = idContaLancamento;
+        IdFormaPagamento = idFormaPagamento;
     }
 
     public int Id { get; set; }
     public byte IdStatus { get; set; }
-    public IEnumerable<ContaLancamento> Lancamento { get; set; }
-    public IEnumerable<ContaFormaPagamento> FormaPagamento { get; set; }
+    public int IdContaLancamento { get; set; }
+    public int  IdFormaPagamento { get; set;}
+ 
 }

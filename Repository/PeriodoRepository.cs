@@ -6,7 +6,7 @@ namespace SistemaHospedagem.Repository;
 
 public class PeriodoRepository
 {
-    public void Inserir(Periodo periodo)
+    public void Insert(Periodo periodo)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -21,7 +21,7 @@ public class PeriodoRepository
         dbConnection.Close();
     }
 
-    public void Deletar(Periodo periodo)
+    public void Delete(Periodo periodo)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -32,7 +32,7 @@ public class PeriodoRepository
         dbConnection.Close();
     }
 
-    public static IEnumerable<Periodo> Buscar()
+    public static IEnumerable<Periodo> Search()
     {
         var periodos = new List<Periodo>();
         var dbConnection = DbConnection.GetConnection();
@@ -63,7 +63,7 @@ public class PeriodoRepository
         return periodos;
     }
 
-    public void Atualizar(Periodo periodo)
+    public void Update(Periodo periodo)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();

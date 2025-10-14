@@ -1,23 +1,23 @@
 namespace SistemaHospedagem.Models;
 
-public class RegrasDeValores
+public class RegraDeValor
 {
-    public RegrasDeValores() { }
-    public RegrasDeValores(int id, string nome, decimal valor, Periodo periodo, TipoQuarto tipoQuarto, TipoAjuste tipoAjuste)
+    public RegraDeValor() { }
+    public RegraDeValor(int id, string nome, decimal valor, int periodo, int tipoQuarto, int tipoAjuste)
     {
         Id = id;
         Nome = nome;
         Valor = valor;
-        this.periodo = periodo;
-        this.tipoQuarto = tipoQuarto;
-        this.tipoAjuste = tipoAjuste;
+        Idperiodo = periodo;
+        IdtipoQuarto = tipoQuarto;
+        IdtipoAjuste = tipoAjuste;
     }
 
     public int Id { get; set; }
     public string Nome { get; set; }
     public decimal Valor { get; set; }
-    public Periodo periodo { get; set; }
-    public TipoQuarto tipoQuarto { get; set; }
-    public TipoAjuste tipoAjuste { get; set; }
+    public int Idperiodo { get; set; }
+    public int IdtipoQuarto { get; set; }
+    public int  IdtipoAjuste { get; set; }
 
 }

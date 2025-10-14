@@ -47,13 +47,13 @@ void Cadastrar()
     };
 
     HospedeRepository produtoRepository = new HospedeRepository();
-    produtoRepository.Inserir(hospede);
+    produtoRepository.Insert(hospede);
     return;
 }
 
 void Buscar()
 {
-    IEnumerable<Hospede> hospedes = HospedeRepository.Buscar();
+    IEnumerable<Hospede> hospedes = HospedeRepository.Search();
 
     if (!hospedes.Any())
     {
@@ -103,7 +103,7 @@ void InserirPeriodo()
     };
 
     PeriodoRepository periodoRepository = new PeriodoRepository();
-    periodoRepository.Inserir(periodo);
+    periodoRepository.Insert(periodo);
     return;
 }
 

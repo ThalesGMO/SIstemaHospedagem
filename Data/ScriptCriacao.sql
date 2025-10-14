@@ -232,12 +232,12 @@ CREATE TABLE ReservaStatus(
 
 CREATE TABLE Reservas(
 	Id				INTEGER IDENTITY,  
-	IdStatus		INTEGER NOT NULL, 
-	IdAcomodacao	INTEGER NOT NULL,
-	IdConta			INTEGER NOT NULL,
-	IdFuncionario	INTEGER NOT NULL, 
-	DataCheckin		DATE	NOT NULL, 
-	DataCheckout	DATE	NOT NULL,
+	IdStatus		INTEGER 	NOT NULL, 
+	IdAcomodacao	INTEGER		NOT NULL,
+	IdConta			INTEGER 	NOT NULL,
+	IdFuncionario	INTEGER 	NOT NULL, 
+	DataCheckin		DATETIME	NOT NULL, 
+	DataCheckout	DATETIME	NOT NULL,
 
 	CONSTRAINT PK_Reservas PRIMARY KEY(Id),
 	CONSTRAINT FK_Reservas_ReservaStatus  FOREIGN KEY(IdStatus) REFERENCES ReservaStatus(Id), 

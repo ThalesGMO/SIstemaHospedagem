@@ -3,14 +3,14 @@ namespace SistemaHospedagem.Models;
 public class Perfil
 {
     public Perfil() { }
-    public Perfil(int id, string nomeUsuario, string senha, string salt, int funcionarioId, Funcionario funcionario)
+    public Perfil(int id, string nomeUsuario, string senha, string salt, int funcionarioId, string email)
     {
         Id = id;
         NomeUsuario = nomeUsuario;
         Senha = senha;
         Salt = salt;
         FuncionarioId = funcionarioId;
-        Funcionario = funcionario;
+        Email = email;
     }
 
     public int Id { get; set; }
@@ -18,5 +18,5 @@ public class Perfil
     public string Senha { get; set; }
     public string Salt { get; set; }
     public int FuncionarioId { get; set; }
-    public Funcionario Funcionario { get; set; }
-}
+    public string Email { get; set; }
+} 
