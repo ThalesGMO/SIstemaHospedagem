@@ -11,7 +11,7 @@ namespace SistemaHospedagem.Repository;
 
 public class ProdutoRepository
 {
-    public void Inserir(Produto produto)
+    public void Insert(Produto produto)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -26,7 +26,7 @@ public class ProdutoRepository
         dbConnection.Close();
     }
 
-    public IEnumerable<Produto> Buscar()
+    public IEnumerable<Produto> Search()
     {
         var produtos = new List<Produto>();
         using (SqlConnection dbConnection = DbConnection.GetConnection())
@@ -58,7 +58,7 @@ public class ProdutoRepository
         return produtos;
     }
 
-    public void Deletar(Produto produto)
+    public void Delete(Produto produto)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -70,7 +70,7 @@ public class ProdutoRepository
         dbConnection.Close();
     }
 
-    public void Atualizar(Produto produto)
+    public void Update(Produto produto)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -87,7 +87,7 @@ public class ProdutoRepository
         dbConnection.Close();
     }
 
-    public IEnumerable<Produto> Buscar(string nome)
+    public IEnumerable<Produto> SearchByName(string nome)
     {
         var produtos = new List<Produto>();
         var dbConnection = DbConnection.GetConnection();

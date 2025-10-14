@@ -4,7 +4,7 @@ namespace SistemaHospedagem.Repository;
 
 public class AcomodacaoUnidadeRepository
 {
-    public void Inserir(AcomodacaoUnidade acomodacaoUnidade)
+    public void Insert(AcomodacaoUnidade acomodacaoUnidade)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -22,7 +22,7 @@ public class AcomodacaoUnidadeRepository
         dbConnection.Close();
     }
 
-    public void Deletar(AcomodacaoUnidade acomodacaoUnidade)
+    public void Delete(AcomodacaoUnidade acomodacaoUnidade)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -33,7 +33,7 @@ public class AcomodacaoUnidadeRepository
         dbConnection.Close();
     }
 
-    public void Atualizar(AcomodacaoUnidade acomodacaoUnidade)
+    public void Updaate(AcomodacaoUnidade acomodacaoUnidade)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -55,7 +55,7 @@ public class AcomodacaoUnidadeRepository
         dbConnection.Close();
     }
 
-    public IEnumerable<AcomodacaoUnidade> Buscar()
+    public IEnumerable<AcomodacaoUnidade> Search()
     {
         var acomodacoesUnidades = new List<AcomodacaoUnidade>();
         var dbConnection = DbConnection.GetConnection();

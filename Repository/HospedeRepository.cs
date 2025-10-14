@@ -10,7 +10,7 @@ namespace SistemaHospedagem.Repository;
 
 public class HospedeRepository
 {
-    public void Inserir(Hospede hospede)
+    public void Insert(Hospede hospede)
     {
         var dbConnection = DbConnection.GetConnection();
         var Comando = dbConnection.CreateCommand();
@@ -26,7 +26,7 @@ public class HospedeRepository
         dbConnection.Close();
     }
 
-    public void Deletar(Hospede hospede)
+    public void Delete(Hospede hospede)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -39,7 +39,7 @@ public class HospedeRepository
         dbConnection.Close();
     }
 
-    public static IEnumerable<Hospede> Buscar()
+    public static IEnumerable<Hospede> Search()
     {
         var hospedes = new List<Hospede>();
         using (SqlConnection dbConnection = DbConnection.GetConnection())
@@ -72,7 +72,7 @@ public class HospedeRepository
 
     }
 
-    public void Atualizar(Hospede hospede)
+    public void Update(Hospede hospede)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();

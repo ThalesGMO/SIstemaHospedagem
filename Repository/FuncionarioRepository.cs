@@ -6,7 +6,7 @@ namespace SistemaHospedagem.Repository;
 
 public class FuncionarioRepository
 {
-    public void Inserir(Funcionario funcionario)
+    public void Insert(Funcionario funcionario)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -16,7 +16,7 @@ public class FuncionarioRepository
         dbConnection.Close();
     }
 
-    public void Deletar(Funcionario funcionario)
+    public void Delete(Funcionario funcionario)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -26,7 +26,7 @@ public class FuncionarioRepository
         dbConnection.Close();
     }
 
-    public void Atualizar(Funcionario funcionario)
+    public void Update(Funcionario funcionario)
     {
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
@@ -49,7 +49,7 @@ public class FuncionarioRepository
         dbConnection.Close();
     }
 
-    public IEnumerable<Funcionario> Buscar()
+    public IEnumerable<Funcionario> Search()
     {
         var funcionarios = new List<Funcionario>();
         var dbConnection = DbConnection.GetConnection();
