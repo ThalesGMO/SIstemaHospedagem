@@ -35,6 +35,8 @@ void Cadastrar()
     Console.WriteLine("Digite seu Email");
     string email = Console.ReadLine();
 
+    
+
     Hospede hospede = new Hospede
     {
         Nome = nome,

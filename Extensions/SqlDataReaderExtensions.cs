@@ -8,4 +8,7 @@ public static class SqlDataReaderExtensions
     {
         return reader.GetFieldValue<DateOnly>(field);
     }
+
+
+    public stati
 }
