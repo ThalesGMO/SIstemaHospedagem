@@ -6,14 +6,14 @@ public class Reserva
 {
     public Reserva() { }
 
-    public Reserva(int id, int idStatus, int idAcomodacao, int idConta, int idFuncionario, DateOnly dataChekin, DateOnly dataCheckout)
+    public Reserva(int id, int idStatus, int idAcomodacao, int idConta, int idFuncionario, DateOnly dataCheckin, DateOnly dataCheckout)
     {
         Id = id;
         IdStatus = idStatus;
         IdAcomodacao = idAcomodacao;
         IdConta = idConta;
         IdFuncionario = idFuncionario;
-        DataChekin = dataChekin;
+        DataCheckin = dataCheckin;
         DataCheckout = dataCheckout;
     }
 
@@ -22,6 +22,6 @@ public class Reserva
     public int IdAcomodacao;
     public int IdConta;
     public int IdFuncionario;
-    public DateOnly DataChekin;
+    public DateOnly DataCheckin;
     public DateOnly DataCheckout;
 }
