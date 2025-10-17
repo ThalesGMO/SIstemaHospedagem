@@ -13,7 +13,7 @@ public class Conta
     }
 
     public int Id { get; set; }
-    public byte IdStatus { get; set; }
+    public int IdStatus { get; set; }
     public int IdContaLancamento { get; set; }
     public int  IdFormaPagamento { get; set;}
  

@@ -78,7 +78,7 @@ namespace SistemaHospedagem.Repository
                 while (reader.Read())
                 {
                     var reserva = new Reserva()
-                    {
+                    {   
                         Id = reader.GetInt32(reader.GetOrdinal("Id")),
                         IdStatus = reader.GetInt32(reader.GetOrdinal("IdStatus")),
                         IdAcomodacao = reader.GetInt32(reader.GetOrdinal("IdAcomodacao")),

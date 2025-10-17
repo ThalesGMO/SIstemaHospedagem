@@ -31,6 +31,7 @@ CREATE TABLE Funcionarios(
 	IdStatus		TINYINT				NOT NULL,
 	Nome			VARCHAR(50)			NOT NULL,
 	Cpf				VARCHAR(11)			NOT NULL UNIQUE, 
+	Telefone 		VARCHAR(15)			NOT NULL,
 	DataAdmissao	DATE				NOT NULL, 
 
 	CONSTRAINT PK_Funcionarios PRIMARY KEY(Id),
