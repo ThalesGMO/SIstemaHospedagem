@@ -9,8 +9,8 @@ Console.WriteLine("2 - Listar");
 Console.WriteLine("3 - Adicionar Periodo");
 Console.WriteLine("4 - Remover");
 
-bool penis = true;
-while (penis)
+bool loop = true;
+while (loop)
 {
     string opcao = Console.ReadLine();
     switch (opcao)
@@ -34,8 +34,6 @@ void Cadastrar()
 
     Console.WriteLine("Digite seu Email");
     string email = Console.ReadLine();
-
-    
 
     Hospede hospede = new Hospede
     {
