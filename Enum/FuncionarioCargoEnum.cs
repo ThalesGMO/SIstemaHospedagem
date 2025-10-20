@@ -8,8 +8,7 @@ public enum FuncionarioCargoEnum
     Camareira = 4,
     Limpeza = 5,
     Suporte = 6,
-    Garcon = 7,
-    Cozinheiro = 8,
+    Cozinha = 8,
 }
     
 

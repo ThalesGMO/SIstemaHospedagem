@@ -1,8 +1,8 @@
 namespace SistemaHospedagem.Enum;
 
-public enum ContaFormaPagamento
+public enum FormaPagamento
 {
     Dinheiro = 1,
-    Débito = 2,
+    Debito = 2,
     Credito = 3,
 }

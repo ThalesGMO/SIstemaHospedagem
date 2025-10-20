@@ -3,7 +3,7 @@ namespace SistemaHospedagem.Models;
 public class Periodo
 {
     public Periodo() { }
-    public Periodo(int id, string nome,DateOnly dataInicio,DateOnly dataFim, string descricao, int prioridade)
+    public Periodo(int id, string nome, DateOnly dataInicio, DateOnly dataFim, string descricao, int prioridade)
     {
         Id = id;
         Nome = nome;

@@ -1,3 +1,5 @@
+using SistemaHospedagem.ValueObject;
+
 namespace SistemaHospedagem.Models;
 
 public class Perfil

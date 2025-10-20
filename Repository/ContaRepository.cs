@@ -38,10 +38,9 @@ public class ContaRepository
                                             IdFormaPagamento = @IdFormaPagamento
                                         WHERE Id = @Id";
         comando.Parameters.AddWithValue("@Id", conta.Id);
-        comando.Parameters.AddWithValue("@Id", conta.Id);
-        comando.Parameters.AddWithValue("@Id", conta.Id);
-        comando.Parameters.AddWithValue("@Id", conta.Id);
-        comando.Parameters.AddWithValue("@Id", conta.Id);
+        comando.Parameters.AddWithValue("@IdStatus", conta.IdStatus);
+        comando.Parameters.AddWithValue("@IdFormaPagamento", conta.IdFormaPagamento);
+        comando.Parameters.AddWithValue("@IdContaLancamento", conta.IdContaLancamento);
         comando.ExecuteNonQuery();
         dbConnection.Close();
     }

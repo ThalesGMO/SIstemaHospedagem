@@ -3,14 +3,13 @@ namespace SistemaHospedagem.Models;
 public class ContaLancamento
 {
     public ContaLancamento() { }
-    public ContaLancamento(int id, int idConta, int idProduto, int quantidade, decimal valorUnitarioHistorico, Produto produto)
+    public ContaLancamento(int id, int idConta, int idProduto, int quantidade, decimal valorUnitarioHistorico)
     {
         Id = id;
         IdConta = idConta;
         IdProduto = idProduto;
         Quantidade = quantidade;
         ValorUnitarioHistorico = valorUnitarioHistorico;
-        Produto = produto;
     }
 
     public int Id { get; set; }
@@ -18,5 +17,4 @@ public class ContaLancamento
     public int IdProduto { get; set; }
     public int Quantidade { get; set; }
     public decimal ValorUnitarioHistorico { get; set; }
-    public Produto Produto { get; set; }
 }

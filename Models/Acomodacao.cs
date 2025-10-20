@@ -3,7 +3,7 @@ using SistemaHospedagem.Models;
 public class Acomodacao
 {
     public Acomodacao() { }
-    public Acomodacao(int id, int tipoQuartoId, int acomodacoesStatusId, int acomodacoesUnidadeId, string nome, string identificador, int capacidade, AcomodacaoUnidade unidade, AcomodacaoStatus acomodacoesStatus, TipoQuarto tipoQuarto)
+    public Acomodacao(int id, int tipoQuartoId, int acomodacoesStatusId, int acomodacoesUnidadeId, string nome, string identificador, int capacidade)
     {
         Id = id;
         TipoQuartoId = tipoQuartoId;
@@ -12,9 +12,6 @@ public class Acomodacao
         Nome = nome;
         Identificador = identificador;
         Capacidade = capacidade;
-        Unidade = unidade;
-        AcomodacoesStatus = acomodacoesStatus;
-        TipoQuarto = tipoQuarto;
     }
 
     public int Id { get; set; }
@@ -29,3 +26,4 @@ public class Acomodacao
     public AcomodacaoStatus AcomodacoesStatus { get; set; }
     public TipoQuarto TipoQuarto { get; set; }
 }
+

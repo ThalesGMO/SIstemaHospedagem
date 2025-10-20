@@ -4,11 +4,12 @@ public class Email
 {
     public Email(string email)
     {
-       
-        EmailString = email;
+
+        Endereco = email;
 
     }
-    public string EmailString;
+    
+    public string Endereco;
 
     public bool ValidateEmail(string email)
     {

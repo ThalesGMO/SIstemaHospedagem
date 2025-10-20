@@ -83,18 +83,10 @@ CREATE TABLE HistoricosTiposAcomodacoes(
 	CONSTRAINT FK_HistoricosTiposAcomodacoes_TipoAcomodacao FOREIGN KEY(IdTipoAcomodacao) REFERENCES TiposAcomodacoes(Id)
 );
 
-CREATE TABLE TiposAjustes(
-	Id TINYINT IDENTITY, 
-	Nome VARCHAR(40) NOT NULL,
-
-	CONSTRAINT PK_TipoAjustes PRIMARY KEY(Id)
-); 
-
 CREATE TABLE RegrasDeValores(
 	Id				INTEGER IDENTITY, 
 	IdPeriodo		SMALLINT NOT NULL,
 	IdTipoAcomodacao	TINYINT NOT NULL, 
-	IdTipoAjuste	TINYINT NOT NULL, 
 	Nome			VARCHAR(50) NOT NULL, 
 	Valor			DECIMAL(15,2) NOT NULL,
 	DiasAtivos		VARCHAR(100),
@@ -102,7 +94,6 @@ CREATE TABLE RegrasDeValores(
 	CONSTRAINT Pk_RegrasDeValores PRIMARY KEY(Id),
 	CONSTRAINT FK_RegrasDeValores_Periodos FOREIGN KEY(IdPeriodo) REFERENCES Periodos(Id),
 	CONSTRAINT FK_RegrasDeValores_TipoQuartos FOREIGN KEY(IdTipoAcomodacao) REFERENCES TiposAcomodacoes(Id),
-	CONSTRAINT FK_RegrasDeValores_TipoAjutes FOREIGN KEY(IdTipoAjuste) REFERENCES TiposAjustes(Id)
 );
 
 CREATE TABLE AcomodacoesStatus(

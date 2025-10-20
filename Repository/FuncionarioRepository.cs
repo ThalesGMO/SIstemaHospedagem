@@ -1,5 +1,8 @@
+using System.Data.Common;
 using Microsoft.Data.SqlClient;
+using SistemaHospedagem.Extensions;
 using SistemaHospedagem.Models;
+using SistemaHospedagem.ValueObject;
 
 namespace SistemaHospedagem.Repository;
 
@@ -54,28 +57,59 @@ public class FuncionarioRepository
         comando.ExecuteNonQuery();
         dbConnection.Close();
     }
-    
+
     public IEnumerable<Funcionario> Search()
     {
         var funcionarios = new List<Funcionario>();
         var dbConnection = DbConnection.GetConnection();
         var comando = dbConnection.CreateCommand();
-        comando.CommandText = @" SELECT IdCargo,
+        comando.CommandText = @" SELECT Id,
+                                        IdCargo,
                                         IdStatus, 
                                         Nome, 
                                         Cpf,
                                         Telefone,
                                         DataAdmissao
-                                    WHERE Id = Id";
+                                    FROM Funcionarios";
         using (SqlDataReader reader = comando.ExecuteReader())
         {
             while (reader.Read())
             {
                 var funcionario = new Funcionario
                 {
-                    reader.GetInt32(reader.GetOrdinal()),
+                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                    IdCargo = reader.GetInt32(reader.GetOrdinal("IdCargo")),
+                    IdStatus = reader.GetInt32(reader.GetOrdinal("IdStatus")),
+                    Nome = reader.GetString(reader.GetOrdinal("Nome")),
+                    Cpf = reader.GetString(reader.GetOrdinal("Cpf")),
+                    Telefone = new Telefone(reader.GetString(reader.GetOrdinal("Telefone"))),
+                    DataAdmissao = reader.GetDateOnly(reader.GetOrdinal("DataAdmissao")),
                 };
+                funcionarios.Add(funcionario);
             }
+            dbConnection.Close();
+            return funcionarios;
+        }
+    }
+    
+     public bool TelefoneJaExiste(string telefone)
+    {
+        var dbconnection = DbConnection.GetConnection();
+        var comando = dbconnection.CreateCommand();
+        comando.CommandText = @"SELECT CASE 
+						            WHEN EXISTS (SELECT 1 
+											FROM Funcionarios AS f
+											WHERE f.Telefone = @Telefone)	
+						            THEN 1 
+						            ELSE 0
+						            END as TelefoneExist;";
+        comando.Parameters.AddWithValue("@Telefone", telefone);
+        using (SqlDataReader reader = comando.ExecuteReader())
+        {
+            int telefoneExist = 0;
+            if (reader.Read())
+                telefoneExist = reader.GetInt32(reader.GetOrdinal("TelefoneExist"));
+            return telefoneExist == 1;
         }
     }
 }
