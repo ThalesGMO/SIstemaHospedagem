@@ -7,7 +7,6 @@ using SistemaHospedagem.Extensions;
 FuncionarioMenu menu = new FuncionarioMenu();
 menu.CadastrarFuncionario();
 
-var tesate = "thales".FormatarNome();
 // Console.WriteLine("Cadastrar novo hospede");
 // Console.WriteLine("1 - Adicionar hospede");
 // Console.WriteLine("2 - Listar");
