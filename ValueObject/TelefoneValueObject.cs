@@ -18,15 +18,6 @@ public class Telefone
             Console.WriteLine("Telefone não pode vazio, tente novamente");
             telefone = Console.ReadLine();
         }
-
-        FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
-        bool verificarTelefone = funcionarioRepository.TelefoneJaExiste(telefone);
-        if (verificarTelefone)
-        {
-            Console.WriteLine("Telefone já cadastrado no banco, adicione outro telefone");
-            telefone = Console.ReadLine();
-            ValidatePhone(telefone);
-        }
         return telefone;
     }  
 }

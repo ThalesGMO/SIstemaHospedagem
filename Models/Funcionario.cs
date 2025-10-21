@@ -1,3 +1,4 @@
+using SistemaHospedagem.Repository;
 using SistemaHospedagem.ValueObject;
 
 namespace SistemaHospedagem.Models;
@@ -34,17 +35,21 @@ public class Funcionario
         {
             Console.WriteLine("Nome não pode ser vazio, tente novamente");
             nome = Console.ReadLine();
-
         }
         return nome;
     }
 
-     public string GetPhone()
+    public string ValidarNumeroJaExistente(string telefone)
     {
-        var numero = Telefone.Numero;
-        return numero;
+        FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
+        bool verificarTelefone = funcionarioRepository.TelefoneJaExiste(telefone);
+        while (verificarTelefone)
+        {
+            Console.WriteLine("Telefone já cadastrado no banco, adicione outro telefone");
+            telefone = Console.ReadLine();
+        }   
+        return telefone;
     }
-
 
 }
 
