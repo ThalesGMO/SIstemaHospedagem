@@ -13,19 +13,10 @@ public class Telefone
 
     public string ValidatePhone(string telefone)
     {
-        while (string.IsNullOrEmpty(telefone))
+        while (string.IsNullOrEmpty(telefone) || telefone.Length > 20 || telefone.Length < 11)
         {
             Console.WriteLine("Telefone não pode vazio, tente novamente");
             telefone = Console.ReadLine();
-        }
-
-        FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
-        bool verificarTelefone = funcionarioRepository.TelefoneJaExiste(telefone);
-        if (verificarTelefone)
-        {
-            Console.WriteLine("Telefone já cadastrado no banco, adicione outro telefone");
-            telefone = Console.ReadLine();
-            ValidatePhone(telefone);
         }
         return telefone;
     }  

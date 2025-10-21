@@ -11,3 +11,4 @@ INSERT INTO Funcionarios (IdCargo, IdStatus, Nome, Cpf, Telefone, DataAdmissao)
 VALUES (1, 1, 'João da Silva', '12345678901', '83999887766', '2023-10-26');
 
 select * from funcionarios
+

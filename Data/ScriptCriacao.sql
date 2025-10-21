@@ -36,7 +36,7 @@ CREATE TABLE Funcionarios(
 
 	CONSTRAINT PK_Funcionarios PRIMARY KEY(Id),
 	CONSTRAINT FK_Funcionarios_Cargos FOREIGN KEY(IdCargo) REFERENCES FuncionariosCargos(Id),
-	CONSTRAINT FK_Funcionarios_Status FOREIGN KEY(IDStatus) REFERENCES FuncionariosStatus(Id)
+	CONSTRAINT FK_Funcionarios_Status FOREIGN KEY(IdStatus) REFERENCES FuncionariosStatus(Id)
 	);
 
 CREATE TABLE Perfis(

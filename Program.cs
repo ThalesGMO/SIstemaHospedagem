@@ -4,8 +4,19 @@ using SistemaHospedagem.Repository;
 using SistemaHospedagem.Menu;
 using SistemaHospedagem.Extensions;
 
+// FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
+// funcionarioRepository.Search();
+// foreach (var Funcionario in funcionarioRepository.Search())
+// {
+//     Console.WriteLine($"NOME: {Funcionario.Nome}");
+//     Console.WriteLine($"CPF: {Funcionario.Cpf.Codigo}");
+//     Console.WriteLine($"TELEFONE: {Funcionario.Telefone.Numero}");
+// }
+
 FuncionarioMenu menu = new FuncionarioMenu();
-menu.CadastrarFuncionario();
+menu.Cadastrar();
+
+
 
 // Console.WriteLine("Cadastrar novo hospede");
 // Console.WriteLine("1 - Adicionar hospede");
