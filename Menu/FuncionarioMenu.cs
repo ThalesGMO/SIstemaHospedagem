@@ -24,7 +24,7 @@ public class FuncionarioMenu
         telefone.ValidatePhone(numero);
         funcionario.Telefone = telefone;
         Console.Clear();
-        // Console.WriteLine(funcionario.GetPhone());
+    
 
         Console.WriteLine("Digite o Cpf do funcionário");
         string cpf = Console.ReadLine();
