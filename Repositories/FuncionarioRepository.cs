@@ -92,6 +92,42 @@ public class FuncionarioRepository
         }
     }
 
+    public IEnumerable<Funcionario> Search(string nome)
+    {
+        var funcionarios = new List<Funcionario>();
+        var dbConnection = DbConnection.GetConnection();
+        var comando = dbConnection.CreateCommand();
+        comando.CommandText = @" SELECT Id,
+                                        IdCargo,
+                                        IdStatus, 
+                                        Nome, 
+                                        Cpf,
+                                        Telefone,
+                                        DataAdmissao
+                                    FROM Funcionarios
+                                    WHERE Nome = @Nome";
+        comando.Parameters.AddWithValue("@Nome", nome);
+        using (SqlDataReader reader = comando.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var funcionario = new Funcionario
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                    IdCargo = reader.GetByte(reader.GetOrdinal("IdCargo")),
+                    IdStatus = reader.GetByte(reader.GetOrdinal("IdStatus")),
+                    Nome = reader.GetString(reader.GetOrdinal("Nome")),
+                    Cpf = new Cpf(reader.GetString(reader.GetOrdinal("Cpf"))),
+                    Telefone = new Telefone(reader.GetString(reader.GetOrdinal("Telefone"))),
+                    DataAdmissao = reader.GetDateTime(reader.GetOrdinal("DataAdmissao")),
+                };
+                funcionarios.Add(funcionario);
+            }
+            dbConnection.Close();
+            return funcionarios;
+        }
+    }
+
     public bool TelefoneJaExiste(string telefone)
     {
         var dbconnection = DbConnection.GetConnection();

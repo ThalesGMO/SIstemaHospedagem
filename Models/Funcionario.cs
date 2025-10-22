@@ -61,6 +61,7 @@ public class Funcionario
         {
             Console.WriteLine("Cpf já cadastrado no banco, adicione outro cpf");
             cpf = Console.ReadLine();
+            funcionarioRepository.CpfJaExiste(cpf);
         }
         return cpf;
     }

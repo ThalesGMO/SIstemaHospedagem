@@ -53,16 +53,48 @@ public class FuncionarioMenu
 
         FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
         funcionarioRepository.Insert(funcionario);
-        
+    }
 
-       
-        
+    public void Listar()
+    {
+        FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
+        Console.WriteLine("===========MENU DE LISTAGEM===========");
+        funcionarioRepository.Search();
+        foreach (var funcionario in funcionarioRepository.Search())
+        {
+            Console.WriteLine("================================");
+            Console.WriteLine($"NOME: {funcionario.Nome}");
+            Console.WriteLine($"CPF: {funcionario.Cpf}");
+            Console.WriteLine($"TELEFONE: {funcionario.Telefone}");
+            Console.WriteLine($"DATA ADMISSAO: {funcionario.DataAdmissao}");
+        }
+        Console.ReadKey();
 
+    }
 
+    public void FiltrarPorNome()
+    {
+        FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
+        Console.WriteLine("===========MENU DE LISTAGEM===========");
+        Console.WriteLine("Digite o nome do funcionario que gostaria de buscar no banco:");
+        Funcionario funcionario = new Funcionario();
+        string nome = funcionario.ValidateName();
+        funcionarioRepository.Search(nome);
 
+        if (funcionarioRepository.Search(nome) == null)
+        {
+            Console.WriteLine("Funcionario não encontrado no sistema");
+            // vai ter um return para o menu principal aqui   
+        }
 
-
-
-
+        foreach (var individuo in funcionarioRepository.Search(nome))
+        {
+            Console.WriteLine("================================");
+            Console.WriteLine($"NOME: {funcionario.Nome}");
+            Console.WriteLine($"CPF: {funcionario.Cpf}");
+            Console.WriteLine($"TELEFONE: {funcionario.Telefone}");
+            Console.WriteLine($"DATA ADMISSAO: {funcionario.DataAdmissao}");
+        }
+        Console.ReadKey();
     }
 }
