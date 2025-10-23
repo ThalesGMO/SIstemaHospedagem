@@ -69,7 +69,6 @@ public class FuncionarioMenu
             Console.WriteLine($"DATA ADMISSAO: {funcionario.DataAdmissao}");
         }
         Console.ReadKey();
-
     }
 
     public void FiltrarPorNome()

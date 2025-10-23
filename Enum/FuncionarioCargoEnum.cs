@@ -18,7 +18,7 @@ public class FuncionarioEnum
     {
         byte valorCargo;
         Console.Write("CARGO: ");
-        while (!byte.TryParse(Console.ReadLine(), out valorCargo) || valorCargo > 8 || valorCargo < 1)
+        while (!byte.TryParse(Console.ReadLine(), out valorCargo) || valorCargo > 7 || valorCargo < 1)
             Console.WriteLine("Entrada inválida, tente novamente");
         return valorCargo; 
     }
